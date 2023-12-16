@@ -6,7 +6,8 @@
   "license": "MIT",
   "publisher": "westpaddy",
   "repository": {
-    "git": "https://github.com/westpaddy/vscode-diag-trans.git"
+    "type": "git",
+    "url": "https://github.com/westpaddy/vscode-diag-trans.git"
   },
   "engines": {
     "vscode": "^1.85.0"
