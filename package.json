@@ -1,0 +1,65 @@
+{
+  "name": "diag-trans",
+  "displayName": "Diagnostics Transporter",
+  "description": "Transport diagnostics to another URI.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "problem",
+    "problems",
+    "error",
+    "warning",
+    "message",
+    "diagnostic",
+    "diagnostics"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "diag-trans.pathReplacer": {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "default": {},
+          "markdownDescription": "Dictionary of a regular expression and a replacer string pairs, which is used to replace the path part of the URI of a diagnostic. The diagnostic for the original URI is transferred to the replaced URI.\n\nFor instance, specifying the key-value pair `\\.txt$` and `.org` transfers diagnostics for `./foo.txt` to `./foo.org`.\n\nThe replacement uses [`String.prototype.replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) in JavaScript. Please refer to the syntax of regular expressions and replacers on the document."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.2",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8"
+  }
+}
