@@ -4,6 +4,10 @@
   "description": "Transport diagnostics to another URI.",
   "version": "0.0.1",
   "license": "MIT",
+  "publisher": "westpaddy",
+  "repository": {
+    "git": "https://github.com/westpaddy/vscode-diag-trans.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
