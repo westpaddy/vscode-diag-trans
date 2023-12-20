@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	function findNewDiagnostics(x: vscode.Diagnostic[], y: vscode.Diagnostic[]) {
-		return x.filter((diag1) => y.some((diag2) => !isEqualDiagnostic(diag1, diag2)));
+		return x.filter((diag1) => !(y.some((diag2) => isEqualDiagnostic(diag1, diag2))));
 	}
 
 	function eventListener(e: vscode.DiagnosticChangeEvent) {
