@@ -12,3 +12,11 @@ Let's now copy the diagnostics back to the original file you are working on!
 For instance, specifying the key-value pair `\\.txt$` and `.org` transfers diagnostics for `./foo.txt` to `./foo.org`.
 
 The replacement uses [`String.prototype.replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) in JavaScript. Please refer to the syntax of regular expressions and replacers on the document.
+
+## FAQ
+
+#### Diagnostics are duplicated
+
+This will happen if some extension produces the same diagnostics for both transfer source and target files.
+For instance, using a spell checker extension will cause the problem.
+In that case, simply stop the extension for source files, which will not cause inconvenience since your working files should be the target files.
